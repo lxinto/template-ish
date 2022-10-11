@@ -1,0 +1,13 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  namespaces: gmaghlakelidze
+  name: route-mario
+spec:
+  host: giga-mario-geo.apps.osh.devops.tbc
+  path: "/"
+  port:
+    targetPort: http
+  to:
+    kind: Service
+    name: mario-geo-svs

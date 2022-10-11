@@ -1,0 +1,22 @@
+oc get pod [pod-name] -o yaml > [yaml output file]
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mario-geo
+  namespace: gmaghlakelidze
+spec:
+  containers:
+   - name: mario-geo
+     image: nexus.devops.tbc:9443/gmaghlakelidze_dockerpractice/docker-supermario:1.0.0
+     resources:
+       requests:
+         memory: 1Gi
+         cpu: '1'
+       limit:
+         memory: 2Gi
+         cpu: '2'
+     ports:
+       - name: containerport
+         protocol: TCP
+         containerPort: 8080
