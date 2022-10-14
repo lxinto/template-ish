@@ -1,0 +1,19 @@
+***connector from gateway to kubernetes service
+
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: snake-vs
+  namespace: gmaghlakelidze
+spec:
+  gateways:
+    - snake-gateway
+  hosts:
+    - snake-giga.apps.osh.devops.tbc
+  http:
+    - match:
+        - uri:
+            prefix: /
+      route:
+        - destination:
+            host: snake-giga-svs
