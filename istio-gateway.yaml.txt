@@ -1,14 +1,14 @@
 apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
-  name: snake-gateway
-  namespace: gmaghlakelidze
+  name: appname-gateway
+  namespace: lkhintibidze
 spec:
   selector:
     istio: ingressgateway
   servers:
     - hosts:
-        - snake-giga.apps.osh.devops.tbc
+        - appname.apps.osh.devops.tbc
       port:
         name: http
         number: 80
