@@ -1,29 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mario-geo
-  namespace: gmaghlakelidze
+  name: appname-deployment
+  namespace: lkhintibidze
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
-      app: mario-geo
+      app: appname
   template:
     metadata:
       labels:
-        app: mario-geo
+        app: appname
       annotations:
         sidecar.istio.io/inject: 'true'
     spec:
       containers:
-        - name: mario-geo
+        - name: appname
           labels:
-            app: mario-geo
-          image: 'nexus.devops.tbc:9443/gmaghlakelidze_dockerpractice/docker-supermario:1.0.0'
-          resources:
-            requests:
-              memory: 1Gi
-              cpu: '1'
-            limit:
-              memory: 2Gi
-              cpu: '2'
+            app: appname
+          image: 'nexus.devops.tbc:9443/lkhintibidze/image:tag'
